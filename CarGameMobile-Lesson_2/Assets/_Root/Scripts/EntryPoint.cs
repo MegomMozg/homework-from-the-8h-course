@@ -20,7 +20,7 @@ internal class EntryPoint : MonoBehaviour
     private void Awake()
     {
         var profilePlayer = new ProfilePlayer(SpeedCar, InitialState);
-        _mainController = new MainController(_placeForUi, profilePlayer);
+        _mainController = new MainController(_placeForUi, profilePlayer, _adsService);
 
         if (_adsService.IsInitialized) OnAdsInitialized();
         else _adsService.Initialized.AddListener(OnAdsInitialized);
@@ -33,7 +33,6 @@ internal class EntryPoint : MonoBehaviour
 
     private void OnDestroy()
     {
-        _adsService.Initialized.RemoveListener(OnAdsInitialized);
         _iapService.Initialized.RemoveListener(OnIapInitialized);
         _mainController.Dispose();
     }
