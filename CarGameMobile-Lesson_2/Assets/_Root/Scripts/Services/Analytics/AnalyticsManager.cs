@@ -1,22 +1,22 @@
 using UnityEngine;
 using Services.Analytics.UnityAnalytics;
+using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 namespace Services.Analytics
 {
     internal class AnalyticsManager : MonoBehaviour
     {
         private IAnalyticsService[] _services;
-
-
+         
         private void Awake() =>
             _services = new IAnalyticsService[]
             {
-                new UnityAnalyticsService()
+                new UnityAnalyticsService() 
             };
 
-
-        public void SendMainMenuOpened() =>
-            SendEvent("MainMenuOpened");
+        public void SendGameStarted() =>
+            SendEvent("GameStarted");
 
         private void SendEvent(string eventName)
         {

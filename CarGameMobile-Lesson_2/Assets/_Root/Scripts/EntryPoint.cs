@@ -28,7 +28,7 @@ internal class EntryPoint : MonoBehaviour
         if (_iapService.IsInitialized) OnIapInitialized();
         else _iapService.Initialized.AddListener(OnIapInitialized);
 
-        _analytics.SendMainMenuOpened();
+        _analytics.SendGameStarted();
     }
 
     private void OnDestroy()
