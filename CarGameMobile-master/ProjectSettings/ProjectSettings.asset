@@ -830,8 +830,9 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Unity Ads: 1
+    Build: 1
     Purchasing: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -845,11 +846,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 2ed49957-4552-4f60-bb29-72edbea88639
+  cloudProjectId: 3c44ee17-1da2-42b4-92c0-a422d2bd20fe
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: CarGameLessons
-  organizationId: anton_kerp
+  projectName: CarGameLessons (1)
+  organizationId: unity_3809799344a
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

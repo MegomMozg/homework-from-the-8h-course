@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.iOS;
 
 namespace Features.Shed.Upgrade
 {
@@ -16,11 +18,15 @@ namespace Features.Shed.Upgrade
         protected override string GetKey(UpgradeItemConfig config) =>
             config.Id;
 
-        protected override IUpgradeHandler CreateItem(UpgradeItemConfig config) =>
-            config.Type switch
+        protected override IUpgradeHandler CreateItem(UpgradeItemConfig config)
+        {
+            return config.Type switch
             {
                 UpgradeType.Speed => new SpeedUpgradeHandler(config.Value),
-                _ => StubUpgradeHandler.Default
+                UpgradeType.Transmission => new TransmissionUpgradeHandler(config.Value, config.Value),
+                _ => StubUpgradeHandler.Default,
+                
             };
+        }
     }
 }

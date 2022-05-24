@@ -108,12 +108,20 @@ namespace Features.Shed
 
             _profilePlayer.CurrentState.Value = GameState.Start;
             Log($"Apply. Current Speed: {_profilePlayer.CurrentTransport.Speed}");
+            _profilePlayer.CurrentState.Value = GameState.Start;
+            Log($"Apply. Current Transmisson: {_profilePlayer.CurrentTransport.Transmisson}");
+            _profilePlayer.CurrentState.Value = GameState.Start;
+            Log($"Apply. Current JumpHeight: {_profilePlayer.CurrentTransport.JumpHeight}");
         }
 
         private void Back()
         {
             _profilePlayer.CurrentState.Value = GameState.Start;
             Log($"Back. Current Speed: {_profilePlayer.CurrentTransport.Speed}");
+            _profilePlayer.CurrentState.Value = GameState.Start;
+            Log($"Back. Current Transmission: {_profilePlayer.CurrentTransport.Transmisson}");
+            _profilePlayer.CurrentState.Value = GameState.Start;
+            Log($"Back. Current JumpHeight: {_profilePlayer.CurrentTransport.JumpHeight}");
         }
 
 

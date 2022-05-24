@@ -6,6 +6,8 @@ internal class EntryPoint : MonoBehaviour
 {
     [Header("Initial Settings")]
     [SerializeField] private float _speedCar;
+    [SerializeField] private float _TransmissionCar;
+    [SerializeField] private float _JumpHieght;
     [SerializeField] private GameState _initialState;
     [SerializeField] private TransportType _transportType;
 
@@ -17,7 +19,7 @@ internal class EntryPoint : MonoBehaviour
 
     private void Awake()
     {
-        var profilePlayer = new ProfilePlayer(_speedCar, _transportType, _initialState);
+        var profilePlayer = new ProfilePlayer(_speedCar, _TransmissionCar, _JumpHieght, _transportType , _initialState);
         _mainController = new MainController(_placeForUi, profilePlayer);
     }
 
