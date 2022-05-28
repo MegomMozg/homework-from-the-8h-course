@@ -16,13 +16,15 @@ namespace Features.Shed
 
     internal class ShedController : BaseController, IShedController
     {
-        private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Shed/ShedView");
+        
         private readonly ResourcePath _dataSourcePath = new ResourcePath("Configs/Shed/UpgradeItemConfigDataSource");
 
         private readonly ShedView _view;
         private readonly ProfilePlayer _profilePlayer;
         private readonly InventoryMvcContainer _inventoryMvcContainer;
         private readonly UpgradeHandlersRepository _upgradeHandlersRepository;
+        private readonly ShedUpgradeWithEquippedItems _upgrade;
+        private readonly ShedLoadView _loadView;
 
 
         public ShedController(
@@ -37,9 +39,11 @@ namespace Features.Shed
 
             _inventoryMvcContainer = CreateInventoryContainer(_profilePlayer.Inventory, placeForUi);
             _upgradeHandlersRepository = CreateRepository();
-            _view = LoadView(placeForUi);
+            _loadView = new ShedLoadView();
+            _view = _loadView.LoadView(placeForUi);
 
             _view.Init(Apply, Back);
+            _upgrade = new ShedUpgradeWithEquippedItems();
         }
 
 
@@ -60,21 +64,14 @@ namespace Features.Shed
             return repository;
         }
 
-        private ShedView LoadView(Transform placeForUi)
-        {
-            GameObject prefab = ResourcesLoader.LoadPrefab(_viewPath);
-            GameObject objectView = Object.Instantiate(prefab, placeForUi, false);
-            AddGameObject(objectView);
-
-            return objectView.GetComponent<ShedView>();
-        }
+        
 
 
         private void Apply()
         {
             _profilePlayer.CurrentTransport.Restore();
 
-            UpgradeWithEquippedItems(
+            _upgrade.UpgradeWithEquippedItems(
                 _profilePlayer.CurrentTransport,
                 _profilePlayer.Inventory.EquippedItems,
                 _upgradeHandlersRepository.Items);
@@ -90,14 +87,6 @@ namespace Features.Shed
         }
 
 
-        private void UpgradeWithEquippedItems(
-            IUpgradable upgradable,
-            IReadOnlyList<string> equippedItems,
-            IReadOnlyDictionary<string, IUpgradeHandler> upgradeHandlers)
-        {
-            foreach (string itemId in equippedItems)
-                if (upgradeHandlers.TryGetValue(itemId, out IUpgradeHandler handler))
-                    handler.Upgrade(upgradable);
-        }
+        
     }
 }
