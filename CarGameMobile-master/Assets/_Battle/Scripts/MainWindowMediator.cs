@@ -1,5 +1,7 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +16,8 @@ namespace BattleScripts
 
         [Header("Enemy Stats")]
         [SerializeField] private TMP_Text _countPowerEnemyText;
+        [SerializeField] private TMP_Text _countCrimeEnemyText;
+        
 
         [Header("Money Buttons")]
         [SerializeField] private Button _addMoneyButton;
@@ -26,10 +30,16 @@ namespace BattleScripts
         [Header("Power Buttons")]
         [SerializeField] private Button _addPowerButton;
         [SerializeField] private Button _minusPowerButton;
+        
+        [Header("Crimes Buttons")]
+        [SerializeField] private Button _addCrimeRate;
+        [SerializeField] private Button _minusCrimeRate;
+        [SerializeField] private Button _passPeacefully;
 
         [Header("Other Buttons")]
         [SerializeField] private Button _fightButton;
-
+        
+        private int _allCountCrimeEnenmy;
         private int _allCountMoneyPlayer;
         private int _allCountHealthPlayer;
         private int _allCountPowerPlayer;
@@ -37,6 +47,7 @@ namespace BattleScripts
         private PlayerData _money;
         private PlayerData _heath;
         private PlayerData _power;
+        private PlayerData _crime;
 
         private Enemy _enemy;
 
@@ -48,6 +59,7 @@ namespace BattleScripts
             _money = CreatePlayerData(DataType.Money);
             _heath = CreatePlayerData(DataType.Health);
             _power = CreatePlayerData(DataType.Power);
+            _crime = CreatePlayerData(DataType.Crime);
 
             Subscribe();
         }
@@ -87,6 +99,10 @@ namespace BattleScripts
 
             _addPowerButton.onClick.AddListener(IncreasePower);
             _minusPowerButton.onClick.AddListener(DecreasePower);
+            
+            _addCrimeRate.onClick.AddListener(IncreaseCrime);
+            _minusCrimeRate.onClick.AddListener(DecreaseCrime);
+            _passPeacefully.onClick.AddListener(OnClickCrime);
 
             _fightButton.onClick.AddListener(Fight);
         }
@@ -101,6 +117,9 @@ namespace BattleScripts
 
             _addPowerButton.onClick.RemoveAllListeners();
             _minusPowerButton.onClick.RemoveAllListeners();
+            
+            _addCrimeRate.onClick.RemoveAllListeners();
+            _addCrimeRate.onClick.RemoveAllListeners();
 
             _fightButton.onClick.RemoveAllListeners();
         }
@@ -114,7 +133,9 @@ namespace BattleScripts
 
         private void IncreasePower() => IncreaseValue(ref _allCountPowerPlayer, DataType.Power);
         private void DecreasePower() => DecreaseValue(ref _allCountPowerPlayer, DataType.Power);
-
+        
+        private void IncreaseCrime() => IncreaseValue(ref _allCountCrimeEnenmy, DataType.Crime);
+        private void DecreaseCrime() => DecreaseValue(ref _allCountCrimeEnenmy, DataType.Crime);
         private void IncreaseValue(ref int value, DataType dataType) => AddToValue(ref value, 1, dataType);
         private void DecreaseValue(ref int value, DataType dataType) => AddToValue(ref value, -1, dataType);
 
@@ -135,7 +156,9 @@ namespace BattleScripts
             textComponent.text = text;
 
             int enemyPower = _enemy.CalcPower();
+            int enemyCrime = _enemy.CalcCrime(_passPeacefully, _addCrimeRate, _minusCrimeRate);
             _countPowerEnemyText.text = $"Enemy Power {enemyPower}";
+            _countCrimeEnemyText.text = $"Enemy Crime {enemyCrime}";
         }
 
         private TMP_Text GetTextComponent(DataType dataType) =>
@@ -144,6 +167,7 @@ namespace BattleScripts
                 DataType.Money => _countMoneyText,
                 DataType.Health => _countHealthText,
                 DataType.Power => _countPowerText,
+                DataType.Crime => _countCrimeEnemyText,
                 _ => throw new ArgumentException($"Wrong {nameof(DataType)}")
             };
 
@@ -153,6 +177,7 @@ namespace BattleScripts
                 DataType.Money => _money,
                 DataType.Health => _heath,
                 DataType.Power => _power,
+                DataType.Crime => _crime,
                 _ => throw new ArgumentException($"Wrong {nameof(DataType)}")
             };
 
@@ -167,5 +192,9 @@ namespace BattleScripts
 
             Debug.Log($"<color={color}>{message}!!!</color>");
         }
+
+        
+
+        private void OnClickCrime() => Debug.Log("<color=#07FF00>Pass!!!</color>");
     }
 }
