@@ -11,6 +11,7 @@ namespace Tool.Bundles.Examples
         private const string URLAssetBundleBackgroundButton = "https://drive.google.com/uc?export=download&id=1H079ErsHR5NSCCwqZKk5DiQ2krX8GVfu";
 
         [SerializeField] private DataSpriteBundle[] _dataSpriteBundles;
+        [SerializeField] private DataSpriteBundle[] _dataSpriteButtonBundles;
         [SerializeField] private DataAudioBundle[] _dataAudioBundles;
 
         private AssetBundle _spritesAssetBundle;
@@ -40,7 +41,7 @@ namespace Tool.Bundles.Examples
         {
             yield return GetBackgroundButtonAssetBundle();
             if (_backgroundButtonAssetBundle != null)
-                SetSpriteAssets(_backgroundButtonAssetBundle);
+                SetSpriteButtonAssets(_backgroundButtonAssetBundle);
             else
                 Debug.LogError($"AssetBundle {nameof(_backgroundButtonAssetBundle)} failed to load");
         }
@@ -96,6 +97,12 @@ namespace Tool.Bundles.Examples
         private void SetSpriteAssets(AssetBundle assetBundle)
         {
             foreach (DataSpriteBundle data in _dataSpriteBundles)
+                data.Image.sprite = assetBundle.LoadAsset<Sprite>(data.NameAssetBundle);
+        }
+        
+        private void SetSpriteButtonAssets(AssetBundle assetBundle)
+        {
+            foreach (DataSpriteBundle data in _dataSpriteButtonBundles)
                 data.Image.sprite = assetBundle.LoadAsset<Sprite>(data.NameAssetBundle);
         }
 

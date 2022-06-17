@@ -21,6 +21,14 @@ MonoBehaviour:
     m_Address: Assets/_Root/Sprites/PlankSprite.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 283378bbf45dff240a24c8c4549507de
+    m_Address: Assets/_Root/Sprites/Ui/box/box_option4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 354a3e2cac13a5c40afd6f304a2234ec
+    m_Address: Assets/_Root/Prefabs/box_option4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f2fd3f2671b0342c085196b05069e11a, type: 2}
   m_SchemaSet:
