@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: RusAndEng_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: e12cbf8eb5e52c24fb8a9b9733d67326, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 7457247232
+    m_Localized: StartGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 822624423936
+    m_Localized: Daily Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 947186864128
+    m_Localized: Shed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080758669312
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1229690015744
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
