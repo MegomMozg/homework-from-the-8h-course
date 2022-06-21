@@ -10,23 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Main Shared Data
+  m_Name: RusAndEng Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Main
-  m_TableCollectionNameGuidString: 3a69f6d6fe619441494d1b07d7c6d064
+  m_TableCollectionName: RusAndEng
+  m_TableCollectionNameGuidString: e12cbf8eb5e52c24fb8a9b9733d67326
   m_Entries:
-  - m_Id: 22199394304
-    m_Key: translate_text
+  - m_Id: 7457247232
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 822624423936
+    m_Key: Daily Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 947186864128
+    m_Key: Shed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080758669312
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1229690015744
+    m_Key: Exit
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 0
+    rid: 8503535435036753924
   references:
     version: 2
     RefIds:
-    - rid: 0
+    - rid: 8503535435036753924
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1632412146711
+        m_CustomEpoch: 1655738617631

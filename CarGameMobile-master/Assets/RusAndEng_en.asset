@@ -10,17 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Main_ru-RU
+  m_Name: RusAndEng_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: ru-RU
-  m_SharedData: {fileID: 11400000, guid: 3a69f6d6fe619441494d1b07d7c6d064, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: e12cbf8eb5e52c24fb8a9b9733d67326, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 22199394304
-    m_Localized: "\u041F\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438 \u044D\u0442\u043E\u0442
-      \u0442\u0435\u043A\u0441\u0442"
+  - m_Id: 7457247232
+    m_Localized: StartGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 822624423936
+    m_Localized: Daily Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 947186864128
+    m_Localized: Shed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1080758669312
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1229690015744
+    m_Localized: Exit
     m_Metadata:
       m_Items: []
   references:

@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using System.Collections;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
@@ -10,13 +12,8 @@ namespace Tool.Localization.Examples
 {
     internal class LocalizationWindowByApi : LocalizationWindow
     {
-        [SerializeField] private TMP_Text _changeText;
-
-        [Header("Settings")]
+        [Header("Settings")] 
         [SerializeField] private string _tableName;
-        [SerializeField] private string _localizationTag;
-
-
         protected override void OnStarted()
         {
             OnSelectedLocaleChanged(null);
@@ -39,8 +36,6 @@ namespace Tool.Localization.Examples
 
             if (loadingOperation.Status == AsyncOperationStatus.Succeeded)
             {
-                StringTable table = loadingOperation.Result;
-                _changeText.text = table.GetEntry(_localizationTag)?.GetLocalizedString();
             }
             else
             {

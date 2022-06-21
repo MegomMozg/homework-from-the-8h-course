@@ -19,14 +19,26 @@ MonoBehaviour:
     _importance: 4
   <Notifications>k__BackingField:
   - <Id>k__BackingField: notification_id
+    <Title>k__BackingField: New Notification
+    <Text>k__BackingField: Hello! It is my homework second notification!
+    <RepeatType>k__BackingField: 1
+    <FireTime>k__BackingField:
+      <Year>k__BackingField: 0
+      <Month>k__BackingField: 0
+      <Day>k__BackingField: 0
+      <Hour>k__BackingField: 0
+      <Minute>k__BackingField: 0
+    <RepeatInterval>k__BackingField:
+      <Seconds>k__BackingField: 15
+  - <Id>k__BackingField: notification_id
     <Title>k__BackingField: Game Notification
     <Text>k__BackingField: Hello! It is your first notification!
     <RepeatType>k__BackingField: 1
     <FireTime>k__BackingField:
-      <Year>k__BackingField: 2022
-      <Month>k__BackingField: 6
-      <Day>k__BackingField: 13
-      <Hour>k__BackingField: 23
-      <Minute>k__BackingField: 40
+      <Year>k__BackingField: 0
+      <Month>k__BackingField: 0
+      <Day>k__BackingField: 0
+      <Hour>k__BackingField: 0
+      <Minute>k__BackingField: 0
     <RepeatInterval>k__BackingField:
       <Seconds>k__BackingField: 30
